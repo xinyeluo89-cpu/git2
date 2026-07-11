@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 定义一个包含数字的数组
+        let arr=[1,2,3,4,5]
+        // 定义一个函数用于计算数组元素的和
+        function getarrysum(arr=[])
+        {   
+            let sum=0
+            for(let i=0;i<arr.length;i++)
+            {
+                sum+=arr[i]
+            }
+            return sum;
+        }
+        // 输出数组元素的和到控制台
+        console.log(getarrysum(arr))
+    </script>
+</body>
+</html>

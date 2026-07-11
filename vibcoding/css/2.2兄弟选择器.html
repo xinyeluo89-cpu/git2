@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 兄弟选择器 */
+        /* 选择器前面的元素后面紧跟着的元素 */  
+        /* 邻接兄弟选择器 */
+        h2 + p {
+            color: red;
+        }
+        
+        /* 兄弟选择器 */
+        /* 选择器前面的元素后面紧跟着的元素 */  
+        /* 同类兄弟选择器 */
+        .brother ~ li {
+            color: green;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <h2>标题</h2>
+    <p>段落1</p>
+    <p>段落2</p>
+    <ul>
+        <li class="brother">列表项1</li>
+        <li>列表项2</li>    
+
+    </ul>
+</body>
+</html>

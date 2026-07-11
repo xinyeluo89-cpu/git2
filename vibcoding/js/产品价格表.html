@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品价格表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff;
+            font-size: 28px;
+            margin-bottom: 24px;
+            letter-spacing: 2px;
+        }
+
+        .table-container {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            width: 100%;
+            max-width: 750px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #667eea;
+            color: #fff;
+            font-weight: 600;
+            padding: 14px 18px;
+            text-align: center;
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+
+        td {
+            padding: 12px 18px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            color: #333;
+            font-size: 15px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: #f8f9ff;
+        }
+
+        .price {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+
+        .total {
+            color: #e74c3c;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .error-msg {
+            color: #ff6b6b;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>📋 订单详情</h2>
+    <div class="table-container" id="tableContainer"></div>
+
+    <script>
+        (function () {
+            const container = document.getElementById("tableContainer");
+
+            // 获取用户输入
+            const priceInput = prompt("请输入商品价格（数字）：");
+            const quantityInput = prompt("请输入商品数量（数字）：");
+
+            // 输入验证与数值转换
+            const price = parseFloat(priceInput);
+            const quantity = parseInt(quantityInput, 10);
+
+            // 检查输入是否合法
+            if (isNaN(price) || isNaN(quantity) || price < 0 || quantity < 0) {
+                container.innerHTML = `<p class="error-msg">⚠️ 请输入有效的正数价格和数量！<br>已收到：价格="${priceInput}"，数量="${quantityInput}"</p>`;
+                return;
+            }
+
+            // 计算总价（保留两位小数）
+            const totalPrice = (price * quantity).toFixed(2);
+
+            // 动态生成表格
+            const html = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>商品名称</th>
+                            <th>商品价格 (¥)</th>
+                            <th>商品数量</th>
+                            <th>商品总价 (¥)</th>
+                            <th>收货地址</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>📱 phone</td>
+                            <td class="price">¥${price.toFixed(2)}</td>
+                            <td>${quantity}</td>
+                            <td class="total">¥${totalPrice}</td>
+                            <td>📍 上海</td>
+                        </tr>
+                    </tbody>
+                </table>
+            `;
+
+            container.innerHTML = html;
+        })();
+    </script>
+</body>
+</html>

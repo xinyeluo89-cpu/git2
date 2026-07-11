@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button:disabled {
+            background-color: gray;
+            color: white;
+        }
+        input:placeholder-shown {
+            border: 1px solid red;
+        }
+        input:checked+label {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <button disabled>按钮</button>
+    <br>
+    <input type="text" placeholder="输入框">
+    <br>
+    <input type="checkbox" id="agree">
+    <label for="agree">同意</label>
+
+</html>
