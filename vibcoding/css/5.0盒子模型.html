@@ -4,8 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* 针对所有包含 "box" 的 class 的 div 设置宽度和高度 */
+        div[class*="box"]
+        {
+            width: 200px;
+            height: 200px;
+        }
+        /* 定义 class 为 box1 的样式，背景色为红色，实线黑色边框 */
+        .box1{
+            background-color: red;
+            border: 3px solid black;
+        }
+        /* 定义 class 为 box2 的样式，背景色为绿色，虚线黑色边框 */
+        .box2{
+            background-color: green;
+            border: 3px dashed black;
+        }
+        /* 定义 class 为 box3 的样式，背景色为蓝色，点线黑色边框 */
+        .box3{
+            background-color: blue;
+            border: 3px dotted black;
+        }
+    </style>
 </head>
 <body>
-     
+    <div class="box1">Box 1</div>
+    <div class="box2">Box 2</div>
+    <div class="box3">Box 3</div>
 </body>
 </html>
